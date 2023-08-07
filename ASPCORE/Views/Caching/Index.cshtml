@@ -1,0 +1,7 @@
+﻿@model DateTime?
+<div>
+    Current Time : @DateTime.Now.ToString();
+</div>
+<div>
+    Cached Time : @Model.Value.ToString(); @*Yahan model me time 10 seconds ke liye cached hai/set haia after tem seconds it will be change *@
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "User Page";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <lable asp-for="@item.FirstName">@item.FirstName</lable>
+            </td>
+            <td>
+                <lable asp-for="@item.UserName">@item.UserName</lable>
+            </td>
+            <td>
+                <lable asp-for="@item.Email">@item.Email</lable>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-controller="User" asp-route-Id="@item.Id">Edit</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@*@{
+    ViewData["Title"] = "User Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@

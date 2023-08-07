@@ -1,0 +1,44 @@
+﻿@model ASPCORE.ViewModels.UserRolesandClaimsViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UserRolesandClaims</h4>
+<hr />
+@*manually write Edit view code.*@
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.AppUser.Id" />
+                <label asp-for="@Model.AppUser.Email">@Model.AppUser.Email</label>
+            </div>
+            <div class="form-group">
+                @for (int i =0; i < Model.Roles.Count; i++)
+                {
+                    <input type="hidden" asp-for="@Model.Roles[i].Value" />
+                    <input asp-for="@Model.Roles[i].Selected" />@Model.Roles[i].Text
+                }                
+            </div>
+            <div class="form-group">
+                @for (int i = 0; i < Model.Claims.Count; i++)
+                {
+                    <input type="hidden" asp-for="@Model.Claims[i].Value" />
+                    <input asp-for="@Model.Claims[i].Selected" />@Model.Claims[i].Text
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

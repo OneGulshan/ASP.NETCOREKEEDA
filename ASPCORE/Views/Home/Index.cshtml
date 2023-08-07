@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2 class="disaplay-4">
+        Dependency Injection Example
+    </h2>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Service Type</th>
+            <th>First Instance Task ID</th>
+            <th>Second Instance Task ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Transient
+            </td>
+            <td>
+                @ViewBag.ts1
+            </td>
+            <td>
+                @ViewBag.ts2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Scoped
+            </td>
+            <td>
+                @ViewBag.scs1
+            </td>
+            <td>
+                @ViewBag.scs2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Singleton
+            </td>
+            <td>
+                @ViewBag.sis1
+            </td>
+            <td>
+                @ViewBag.sis2
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+@*@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function(){//iska matlab yahi hota hai ki aap page load par alert message show kar rahe hain.
+            alert("Hello");
+        })
+    </script>
+}*@

@@ -1,0 +1,510 @@
+Technology Keeda
+------------------
+
+1.ASP.NET CORE Tutorial For Beginners 1 - Getting Started
+Create a Asp.net Core Web APP with Latest DotNetCore Version and Https
+In Program.cs file we have UseEndPoints For Performing Routing
+
+2.ASP.NET CORE Tutorial For Beginners 2 - Create Controller, View
+- Project right click->Add->New Item->Mvc Controller-Empty->Controller Name->Ok
+- Right Click on Index method->Add View->Razor View-Empty->Add
+
+3.ASP.NET CORE Tutorial For Beginners 3 - Creating Model
+Right Click on Models Folder->Add->New Item->Class Name->Add
+prop is the shortcut for adding property in Model
+Here performing Mapping(relationShip) between Student and Course Model using extra Model StudentCourse Model
+
+4.ASP.NET CORE Tutorial For Beginners 4 - Many-to-Many Mapping
+Here explaining about Many-to-Many Mapping
+
+5.ASP.NET CORE Tutorial For Beginners 5 - Data Context, Connection String, Startup File, Migration
+- Create a Data Folder->Then Create DataContext Class->Install all mendatory packages like Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer and Microsoft.EntityFrameworkCore.Tools. In DbSet set our Models for adding tables in db and querying with tables using by models.
+- Create Connection String in appsettings.json File
+- Inject our connection string in Startup File
+- add-migration Init, update-database
+
+6.ASP.NET CORE Tutorial For Beginners 6 - Change Table name
+- Change Table name using ModelBuider method by providing in OnModelCreating override method using Entity method, using by in DataContext Class, by using migration also
+
+7.ASP.NET CORE Tutorial For Beginners 7 - CRUD Operations
+- Create a Controller->Add Context->Initialize Context->and use context for performing crud
+- Index create using list, Create using create, edit using edit, details me hamein perticular tuple ki information chaiye hoti hai
+
+8.ASP.NET CORE Tutorial For Beginners 8 - CRUD Operations using Scaffolding
+- right click on Controllers folder->Add->Controller->Mvc Controller with Views, using Entity Framework->select model
+
+9.ASP.NET CORE Tutorial For Beginners 9 - CheckBox List , Many to Many Mapping, Get Method of Create
+- For Showing 2 Models Details on single View required ViewModel, like Student and Course both on single View(Same View)
+- SelectListItem class of IList type required for showing Courses, SelectList type
+- replace bootstrap version by 4.4.1 for showing Courses correctly, Steps:- del lib folder->add twitter-bootstrap and jQuery in wwwroot with using libman.json file and add references in _Layout.cshtml file
+
+10.ASP.NET CORE Tutorial For Beginners 10 - CheckBox List , Many to Many Mapping, Post Method of Create
+
+11.ASP.NET CORE Tutorial For Beginners 11 - CheckBox List , Many to Many Mapping, Details Method
+- ThenInclude <- for moving from one table to 2nd table, use ThenInclude property of EF Core
+- How to TrimEnd(',') in Course on View
+
+12.ASP.NET CORE Tutorial For Beginners 12 - CheckBox List , Many to Many Mapping, Edit Get Action Method
+
+13.ASP.NET CORE Tutorial For Beginners 13 - CheckBox List , Many to Many Mapping, Edit POST Action
+
+14.ASP.NET CORE Tutorial For Beginners 14 - Add Identity in Hindi
+- Install Nuget Package Identity.EntityFrameworkCore
+- Create ApplicationUser Class, Inherit DataContext class with IdentityDbContext in IdentityDbContext add ApplicationUser Class and ApplicationUser class inherit with IdentityUser
+- Now Add Identity using DataContext
+- Register Identity in Program.cs file
+- Authorize attribute used for assigning Roles to Controllers and its Methods for Athorization providing to Controllers and its methods from anonymous users
+- add app.MapRazorPages(); endpoints method in program.cs file for rendering Identity razor pages, for mapping/using service of razor page in pipeline in asp.net core mvc
+Note :-
+- Identity hamari Creadentials ke liye use ki jaati hai like Authentication and Authorization
+- Identity me hamein sirf 2 type ki class ki zarurat hoti hai jo hai UserManager class and SignInManager class, SignInManager class using for signIn and UserManager class for inserting user in db
+- Ham apne Project ko safe rakh sakte hain Identity se
+
+15.ASP.NET CORE Tutorial For Beginners 15 - Identity Customization in Hindi
+- Add some prop in ApplicationUser class, these ApplicationUser class prop's we can also use in our Registration razor page
+- Bind our ApplicationUser class prop's in InputModel class in Registration.cshtml page, Use Input props in OnPostAsync method and change in View also
+Note :-
+- In Razor Pages we have two types of methods OnGetAsync and OnPostAsync
+- This InputModel class is converted in Input prop using BindProperty, now using Input prop we can use our InputModel class prop's simple
+
+16.ASP.NET CORE Tutorial For Beginners 16 - Creating Roles in Hindi
+- Add a ViewModel of RoleStore
+- Create RoleControler with creating Create method with View
+- In Program.cs Add IdentityRole Service, Now we can Create Roles
+- All role managers and identity features are async type.
+
+17.ASP.NET CORE Tutorial For Beginners 17 - Assigning Roles to User in Hindi
+- In Register.cs razor page in OnPostAsync method add Role type using _userManager property, like Admin, Administrator, Student etc. according by Developer, default Role is User. after assigning role on every registration, defined role in Register.cs page is assigned to every register user. after assigning role, Role Creation is also required using Role Controller for autorizing controller ang IAction methods
+- add app.UseAuthentication(); in program.cs
+- add Role Student from Role Controller and Assign Student Role on a Controller using Authorize attribute
+- Now Student users can access this Controller, other anonymous user can't accessible
+
+18.ASP.NET CORE Tutorial For Beginners 18 - Attribute Routing in Hindi
+- Comment Conventional Routing , Then add builder.Services.AddControllers(); and app.MapControllers(); in Program.cs
+- use Route attribute on IAction methods and on Controllers For using Attribute Routing, Routing Used on Course Controller
+Note:-
+- The Conventional Routing is default routing in Program.cs class, because it establishes a convention for URL paths: The first path segment, {controller=Home} , maps to the controller name. The second segment, {action=Index} , maps to the action name. The third segment, {id?} is used for an optional id.
+- Attribute Routing is on Controller level and Action level by user defining
+- Attribute Routing is Better than Conventional Routing
+- Attribute Routing is Very useful in Web Api's
+- In Attribute Routing not matter by Controller names or Views names only matter by Routing
+- In Attribute Routing Tokens Based Routing is best for performing default routing operations
+
+19.ASP.NET CORE Tutorial For Beginners 19 - Passing Data to View in Hindi
+- ViewData and ViewBag is the dectionary type two objects used for storing string values as a key and passing data on View from Controller
+- ViewData and ViewBag used only then, when single data only passing from Controller to View, Used on Course Controller
+
+20.ASP.NET CORE Tutorial For Beginners 20 - Query String in Hindi
+- Query String is used in QueryString Controller
+- Note :- 
+- Microsoft Automatically handle url rewritting/Query String Example :- https://localhost:7134/Course/Create?id=5, https://localhost:7134/Course/Create/5
+- Change Course Edit id to id1 for understanding Query String.
+- Query String is the query passing in the browser url, and using this query getting result is out of the query and showed on browser.
+- Query String is the Query, with multiple parameters with its values example :- https://localhost:7134/Course/Create?id=5&name='Gulshan'
+
+21.ASP.NET CORE Tutorial For Beginners 21 - Sorting in Hindi
+- Sorting adds on Course Controller Index Action method
+
+22.ASP.NET CORE Tutorial For Beginners 22 - Bind Select List or DropdownList in Hindi
+- Create Gender enum in ApplicationUser Model for using Gender Dropdownlist in TestController
+- Create Test Controller and Bind Course and Gender in Create View
+- Create AppUserViewModel also for Binding both Course and Gender in Create View
+
+23.ASP.NET CORE Tutorial For Beginners 23 - Client-Side Library in Hindi
+- Add Client-Side Library for using bootstrap, jquey etc. libraries in Project
+- Delete lib folder from www.root folder then..
+- right click on on root folder -> Add -> Client-Side Library -> Library name -> Install.
+- after installing library we have libman.json file install, using this file also we can install our library packages manually
+- after this add your library pakages in _Layout master file. that's it <- For Updating your libraries you can use this Client-Side Library
+
+24.ASP.NET CORE Tutorial For Beginners 24 - Upload and Display Image | Save Image in Database in Hindi
+- Create Test model, then in AppUserViewModel add ProfileImage prop as a IFormFile type for showing browser button for picking Image
+- Then write code of insert image on Test controller
+
+25.ASP.NET CORE Tutorial For Beginners 25 - Layout Page in Hindi
+- Layout page is a master page which use for rendering same things on all view pages using @RenderBody(), RenderBody is View Pages change automatically
+- In ViewStart.cshtml page set our _Layout page, which define our master page is _Layout page, here we can change our layout page by making a new Layout page by different name
+
+26.ASP.NET CORE Tutorial For Beginners 26 - Partial View in Hindi
+- Create a _Index View page of Test Controller then Index View code paste in _Index partial view and _Index partial view page call in Index View simple
+- Note :-
+- If our ViewPage length inceased then we can use this partial view page for making partitions of our ViewPage. this is known by modular type dezine/modular type views.
+- Partial View is defined in Test Controller.
+
+27.ASP.NET CORE Tutorial For Beginners 27 - Validation in Hindi
+- We have two types of validations :- Client Side and Server Side Validations <- Now we learn Client Side Validations using Model Validate, by validate Student Model
+- After adding Validations in Model migration required
+- Use ModelState.IsValid Property in Student Controller Create method for validating Model, ModelState.IsValid means required Model Properly Valid and no any Field is Empty also
+- For Showing Proper Validation messages use asp-validation-for tag helper on View Page
+- Note:- Validation is used for validating data by checking its in valid formate or note, like example in db we required only no. but users put text in table for model fields and Stopping insertion records by user
+
+28.ASP.NET CORE Tutorial For Beginners 28 - Not Found Error Handle in Hindi
+- Use in Course Controller Details Method Not Found Error handelling with Showing errors on View
+-> 404 hamare Coustomize View par show ho uske liye hamein lunchSettings.json me Development environment change kar ke Production environment kar dena hai, fir Program.cs file me Error Controller call kara lo with status code handeled by Error{0}
+- then Create Error Controller and then NotFound View in Shared Folder
+- Note :- When we have no url then we have generate 404 error/NullReferenceException/NotFound for handling this we use this process:-
+
+29.ASP.NET CORE Tutorial For Beginners 29 - Environment Variables in Hindi
+- In Project we have different phases these phases is set using Environment Variables. like Development, Staging , Production.
+- In Properties->launchSettings.json->ISSExpress <- we can change different phases.
+- Development for developing application, Staging for testing, Production for after preparing product hosting on server. <- change environment according your work, on project.
+- System default environment is Production environment. we can change also by searching variables->new->name of variable->environment name->okk. <- restart vs and saw changed system environment.
+
+30.ASP.NET CORE Tutorial For Beginners 30 - Seed Data in Hindi
+- Seeding means preinsert some data in database table during migration using datacontext.
+- Seeding data using example, admin data like admin name and password.
+
+31.ASP.NET CORE Tutorial For Beginners 31 - Dependency Injection (DI) with Repository Pattern in Hindi
+- DI is used for making application Loosely Coupled and Removing features like Tightly Coupled.
+- We have 3 methods of DI provided by Microsoft these are Singleton, Transient, Scoped.
+- Transient means for every request make an obj. Singleton means only one obj shared in whole application. Scoped means makes diffrent objects scoped vise.
+- For using Repository Pattern make Infrastructure folder -> then interface of model type -> then Repository Folder -> then interface implimenting class.
+- Note :- Really aren't comparable a repository is something you can inject via dependency injection.
+- Now add your Student Repository in DI in Program.cs file.
+- Create Student Controller and use Repository pattern in it. <- This is an extra abstract layer of abstract methods using Repository Pattern.
+
+32.ASP.NET CORE Tutorial For Beginners 32 - Main Method in Hindi
+- Main Method in asp.net core mvc 7.0 c# Not Found
+
+33.ASP.NET CORE Tutorial For Beginners 33 - Cookie in Hindi
+- Use AppUserViewModel and Test Controller for Image Name Storing in Cookies of Browser.
+- Note :- Cookies is saved on Client Computer Browser, for a User define time period.
+
+34.ASP.NET CORE Tutorial For Beginners 34 - Tag Helpers
+- Move in View and see Html Helpers :- @Html.DisplayFor and @Html.DisplayNameFor. tag-helpers always start with asp keyword like asp-for, asp-action etc.
+- asp-for tag helper se define hota hai ki vo kya banega like string se automatically textbox banega and etc-etc.
+- tag-helpers ki library/assembly hamein bydefault _ViewImports.cshtml file me imported mil jaegi.
+- A Tag Helpers is shortcut of rendering tag-helpers in html helpers like id,name etc. this is very helpful.
+
+35.ASP.NET CORE Tutorial For Beginners 35 - Why Tag Helpers
+- Tag Helpers use because its routing change globally automatically, like by changing in Conventional Routing in Program.cs file its work properly but in Html tag helpers its does'nt work.
+
+36.ASP.NET CORE Tutorial For Beginners 36 - Image Tag Helpers in Hindi
+- <img src="~/Images/@item.ProfileImage" class="rounded-circle" width="40px" height="40px" />
+- image tag me source tag hota hai jisme hamein apni file ka source location define karni hoti hai.
+- Here Images is our foder name and jis ProfileImage name se file milegi vo yahan view par show ho jaegi that's it.
+- Browser image ke liye caching type behaviour rakhta hai. means after file name changing in application browser can render our image using caching.
+- for disabling browser caching in browser move on Developer tools->Network->Disable cache->then browser refresh url.
+- asp-append-version use in image tag for adding a hash value with image name. this hash value always change so after changing hash value browser can't render/access image using its brower cache memory.
+- Note:- jis image tag ke sath asp-append-version nahi juda hota uska matlab hota hai vo image browser cache se aa rhi hai.
+
+37.ASP.NET CORE Tutorial For Beginners 37 - Form Tag Helpers in Hindi
+- Form tag helper is used for posting/inserting data in db using action methods.
+
+38.ASP.NET CORE Tutorial For Beginners 38 - Select Tag Helpers in Hindi
+- here using CourseViewModel with enum and Test Controller with CourseCreate.cshtml View. for using select tag helper for making dropdown using enum and ViewBag.
+
+39.ASP.NET CORE Tutorial For Beginners 39 - Area Example in Hindi
+- Steps For Creating Area -> Add->New Scaffold item->Common->MVC Area->Area Name(Admin)->Add.
+- Area is used for seprating works Area wise like Admin, Employee etc.
+- define area routing in program.cs file for using area pattern routing.
+
+40.ASP.NET CORE Tutorial For Beginners 40 - EntityFramework Core Migrations
+- get-help about_entityframeworkcore <- For knowing details of all migrations
+- migration is a schema of our model using this schema we making an actual copy of table in db.
+
+41.ASP.NET CORE Tutorial For Beginners 41 - User Registration Page
+- Same Previously defined add extra properties in Identity Registration razor page then register user.
+
+42.ASP.NET CORE Tutorial For Beginners 42 - Show or Hide Login and Logout Links based on login status
+- Add _LoginPartial razor page in Shared Folder and code in it.
+- Now Open _Layout.cshtml file and add your _LoginPartial partial page in it.
+
+43.ASP.NET CORE Tutorial For Beginners 43 - Identity Password Complexity Increase
+- Strong Passwords ke liye Microsoft ne default me 1 class de rakhi hai jiska nam hai PasswordOptions.cs jo ki github par exist hai jise ham dekh sakte hain. https://github.com/dotnet/aspnetcore/blob/main/src/Identity/Extensions.Core/src/PasswordOptions.cs
+- For varrying/increasing security in Registration. open program.cs and modify AddDefaultIdentity<ApplicationUser> Class default properties.
+- Open Register.cshtml.cs and Password MinimumLength increase by 8. Now Password Complexity Increased in Registration Form.
+
+44.ASP.NET CORE Tutorial For Beginners 44 - Login Functionality
+- Here Explaining Login.cshtml.cs razor page flow.
+- RemeberMe in Login.cshtml.cs is called Is Persistent Cookie is a temporary cookie. They are also called in-memory cookies and session-based cookies.
+
+45.ASP.NET CORE Tutorial For Beginners 45 - Get List of Users from Identity
+- Identity Users Crud Operations using Home Controller.
+
+46.ASP.NET CORE Tutorial For Beginners 46 - Edit Identity User | Update Identity User
+- Add Email and UserName Properties in AppUserViewModel.cs class for using editing operation on both in identity _userManager Users.
+
+47.ASP.NET CORE Tutorial For Beginners 47 - Create Roles | Get List of Roles from Identity
+//Already Done.
+
+48.ASP.NET CORE Tutorial For Beginners 48 - Edit and Delete Existing Role from Identity
+- Add Id in IndexRole method for getting on Edit Role time. and RoleStoreViewModel Id change into string for using id property.
+
+49.ASP.NET CORE Tutorial For Beginners 49 - Confirmation Email Link
+- That's Not Proper Video or Not Worked for me
+- Sent Email Confirmation Link In Identity:- https://www.youtube.com/watch?v=Oif6-76-Bfk
+
+50.ASP.NET CORE Tutorial For Beginners 50 - Manage User Roles
+- We have our Identity Users, here we want to learn assign/modify identity roles and claims features on User
+
+51.ASP.NET CORE Tutorial For Beginners 51 - Add or Remove Roles From Users | Edit UserRole
+- Here impleament our last video Manage User Roles
+- Create UserRolesandClaims model and ManageRole Controller with Index and Edit Action method for managing roles on users and code it.
+
+
+52.ASP.NET CORE Tutorial For Beginners 52 - Create Default Admin for Application | Create Default Roles
+- Note:- Here we Learning how to Create our default Admin and how to Add default role in it.
+- Create a DbInitializer class in Data Folder.
+- Now Call this class in Program.cs Main Method.
+- Main Method Not Found in dotnet 7.0 so, this Role and Admin not created in this project.
+
+53.ASP.NET CORE Tutorial For Beginners 53 - Change Password
+- Note:- No Required to make Change Password Page, Open ChangePassword Partial Page of Identity and see the flow of Change Password.
+- Now Login -> Click on User -> Password -> Then Change our Password. <- Our Password in Identity Table maked/Generate Hash Type Always we can see in AspNetUsers.
+
+54.ASP.NET CORE Tutorial For Beginners 54 - Enable Two Factor Authentication
+- Open https://davidshimjs.github.io/qrcodejs/ url -> Download File in .zip-> Extract File -> Copy qrcode.js and min.js File -> And Open wwwroot folder make QrCodeJs Folder in Lib Folder and Paste in it.
+-> Now Open EnableAuthenticator.cshtml razor page -> in Script section paste your qrcode.js file here only and write code also here.
+-> Now Download Google Authenticator app in your Android Phone -> Now Start your app -> Login -> Click on User -> Two-Factor authentication -> Add Authentication app
+-> Scan Barcode -> Enter Code -> Authentication Successfully -> Logout -> ReLogin -> Enter Authenticator code. <- Done Now Authenticator App Enabled Successfully.
+- We can also Disable our Two-Factor Authentication by moving on User Two-factor authentication tab.
+
+55.ASP.NET CORE Tutorial For Beginners 55 - Add and Remove User Claims
+- Create a Class in ViewModel CliamStore and Add/Create your Cliams in It.
+- Now Open UserRolesandClaims ViewModel and create List Claims in It.
+- Then Write Claims Edit Code on UserRolesandClaimsController Same as Roles Edit Code.
+
+56.ASP.NET CORE Tutorial For Beginners 56- ASP.NET CORE PROJECT FILE
+- Our Project file extension is .csproj. this file we can see in our FileExplore. If we add any file in our Project using File Explorer file is automatically add also in our project using file system.
+- Previously we need to unload our project for editing put now we can directly edit our project file.
+- In Project File we can see our dotnet TargetFramework, and nuget package references also.
+
+57.ASP.NET CORE Tutorial For Beginners 57 - How to use User Claims
+- Note:- In 55 Video we see how to add claims noe see how to use claims in this. beacause based on claims we can perform authentication on every Controller's every Action Method.
+- Open Program.cs file and AddAuthorization for creating role policy by maching your ClaimStore Cliams.
+- Now use your Claim Policy on Role Controller's CreateRole Action Method.
+- If Claim Policy not worked/Access Denied error show then assign Perticular Claim to User, using User Edit Section like Create,Edit etc.
+
+58.ASP.NET CORE Tutorial For Beginners 58 - Repository Pattern in Hindi
+- In 31 Video DI Already Explained Repository Pattern.
+
+59.ASP.NET CORE Tutorial For Beginners 59 - Generic Repository Pattern in Hindi
+- Create GenericInfrastructure Folder and then create IRepo generic interface in it.
+- Then Create GenericRepository Folder and Impleament Your IRepo interface here.
+- Now Register your Generic Repository in Program.cs file using DI method.
+- Now Use your Generic Repository in StudentGeneric Controller Only for Student only Course not included in it, so this is wrong Controller.
+- Note:- Generic Repository Main Purpose is Making and Executing Common Functions of multiple Models.
+- For Performing Generic Repository we required to make an template. that's perform Sepration of Concern.
+
+60.ASP.NET CORE Tutorial For Beginners 60 - Searching from Database
+- Create Product Model -> and initialize in DbContext -> add migration -> Open table and insert some records in it.
+- Create Product Controller -> then write Product Searching Code in Index with Create View with Writing code. And understand the code of Index Action method and its View of Product Controller.
+
+61.ASP.NET CORE Tutorial For Beginners 61 - Paging
+- Create Helper Folder -> Create PaginatedList class  in it -> Then Product Controller with code. <- then read and understand code of pagination.
+
+62.ASP.NET CORE Tutorial For Beginners 62 - Domain Model, ViewModel and Edit View Model Introduction
+- Model Categorization Explained in this Video.
+- Model is the Collection of Objects. Object is the real world implimentation of the class. Model Examples is Person, Product etc.
+- Model is Categorized in three categories Domain Model, ViewModel and Edit View Model.
+- Domain Model is the representation of Object. In Domain Model usually one to one relationship found. Domain model is the part of Data Access Layer. Means our DataBase table is known as Domain Model.
+- Edit View Model is the representation of a thing like Profile Image using IFormFile. But EditView Model we using also as a ViewModel in our Projects.
+- ViewModel is the collaboration of more than one table. for reducing complexity in different models we used ViewModel. like if we want to show Product and Categories on a single page then we using ViewModel we can represent different Domain Models parts on a single View Page. for only representation.
+
+63.ASP.NET CORE Tutorial For Beginners 63 - Need of View Models | View Model Example
+- Know we know Model and View Model Examples with Differences in this Video. and why we requirement of ViewModel.
+- ViewModel is already used as a StudentViewModel and we can see and understand by sawing this one.
+- Know in Student Controller Courses is not their so we want also showing Courses with Students the we created StudentViewModel here.
+- View Model is Created for only Representation thats showing on Viewing Screen thats anything browser, TV etc.
+- Difference between model and viewmodel. model hamare sirf utne honge jitni hamari database tabels hongi. because database ko dekhkar hamare models banae jate hain. But ViewModel kitne bhi ho sakte hain.
+- View Model is using in Presentation Layer. so, ViewModel is Created by sawing Presentation Layer simply.
+
+64.ASP.NET CORE Tutorial For Beginners 64 - How to use JQuery
+- Here we know where we write jQuery code in Asp.net core applications.
+- jQuery important in Asp.net core applications because Dynamic effects can be posible by using jQuery in Asp.net core applications.
+- Note:- Open any View Page and in Section Script paste your jQuery/Script files here and make script tag in it and write jQuery code here simply. I writen jQuery Code in Home Index View.
+- If we want to write jQuery code on a single page then we can write our code that's way. otherwise we can categorise our jQuery code using site.js file, and site.js file is works for all pages in a Project because site.js file is added in master page simply so if we run our any page on page load our jQuery code will run automatically. I used also jQuery code in site.js file.
+- For writing jQuery code for a specific in site.js file so make an id of that and apply jQuery function on it. or write jQuery code based on element, tags etc. mostly preferable is id based jQuery coding.
+- jQuery code for a specific id wise I writtened on Home Controller's Index View Welcome text.
+
+65.ASP.NET CORE Tutorial For Beginners 65 - Validate Anti Forgery Token
+- Validate Anti Forgery Token is used in application for saving from attackers.
+- If other person is changing in your application without your permission thats say, In application Loop Hole.
+- In Course Controller's Create Action method we used our ValidateAntiForgeryToken for saving Create action method from attackers.
+- Firstly we Created a new application with the name of Attacker and using this application we attacking on our ASPCORE application with inserting records in Course table using Attaker application.
+- For this we creating same model, create action method and view with ASPCORE application Course controller's Create Method url and attacked then. Know we can saw that record has been inserted know we use our ValidateAntiForgeryToken and save our Action Method of ASPCORE application Course Controller.
+- ValidateAntiForgeryToken lagate hi ye ek tocken value generate karta hai form ke against agar ye value hamari browser me cookies se match hoti hai tab to hamara data save ho jata hai otherwise save nahi hota hai.
+- Agar ham ValidateAntiForgeryToken lagate hai to ham CSRF(Cross side request foregery) se bach sakte hai. and melicius attack se bhi. CSRF means other application site request se.
+
+66.ASP.NET CORE Tutorial For Beginners 66 - Get related Data
+- Related Data is getting using Include and ThenInclude methods of EF core in asp.net core mvc c# using Navigation from Middel table to other tables simple. That is called Get related Data.
+
+67.ASP.NET CORE Tutorial For Beginners 67 - Middleware
+- In Program.cs File In Configure request pipeline we have multiple Methods/pieaces of softwares is known as our Middlewares.
+- In Middleware we used Request and response pipeline. In our pipeline we can have list of middlewares/pieaces of softwares like StaticFile/Routing/Authorization etc.
+- Many time only we have single StaticFile middleware etc in pipeline, then may be circuit loss. means ye StaticFile next ko response karega hi nahi.
+- Our Middlewares must be in Order in Pipeline for performing right Operations.
+
+68.ASP.NET CORE Tutorial For Beginners 68 - Middleware Request Processing Pipeline
+- In this vedio we learn Middleware request processing pipeline using terminal middleware that's not passing the request to next middleware in it. but in dotnet 7 project program.cs file we have no Configure method/Main Method so we can't use this in this dotnet version simply.
+
+93.ASP.NET CORE Tutorial For Beginners 93 : ASP,NET CORE 5.0 | Getting Started
+- Asp.Net Core new version this is Open Source and cross-plateform means its worked on linux, windows and mac alos. and also worked on asp.net framework old version. this is build from scrach.
+previously its named Asp.net 5 that means Asp.Net Core 1.0.
+- In .Net Core MVC & Razor page improvements.
+- MVC Model binding improvements.
+- Model binding DateTime as UTC.
+- Support for C# 9 record types. C# updates also.
+- Text.Json new Features.
+- Blazor Sever & Blazor WebAssembly support and improvements.
+- SingnalR Hub filters and parallel Hub invocations.
+- Azure AD authentication with Microsoft.Identity.Web.
+- Auto brower refresh with dotnet watch.
+- Http/2 and gRPC performace improvements. <- microservices.
+- Garbage Collection (GC). 
+- Text.RegularExpressions
+- Async ValueTask pooling
+- Container size optimizations
+- Many more areas
+@ Why Use Asp.Net Core
+- Use Cross plateform, Reduce Request pipeline(using packages by removing system.web.dll for increasing performance), DI, Supportive Modern UI(Botsrap, ReactJS and Bootstrap), Other Web Server Supportive(like Apache, Docker old one only IIS supportive) features.
+- Open Source application so, Unit testing so easy in it
+- MVC and Web Api's Controller inherit with same Base Class.
+
+95.ASP.NET CORE Tutorial For Beginners 95: AddTransient, AddScoped and AddSingleton Services Difference
+- Here We Now Difference Between in DI Service methods.
+- Create Interfaces for both three and impliment in TaskService class. then Use in Home Controller. then register both in Program.cs file.
+- then use Interface in Home Controller with View.
+- Now we can see difference that :- In Transient always create a different instance for calling a Service.
+- In Scoped same instance used for calling a Service. <- means har bar same Service call karne ke liye same object kam me lega scopwise(jitne bhi cntroller se ye service call ho rahi ho). change object on every calling
+- In Singleton only onece object created for whole application not changeable scopedwise/calling wise
+- Note:- Defination -> In Transien jhan se bhi call hoga diff object create hoga, In Scoped jhan se bhi call hoga only one object create hoga, request wise changeable, In Singleton jhan se bhi call hoga onle one object create hoga, but request wise not changeable, same object is used in whole application.
+
+96.ASP.NET CORE Tutorial For Beginners 96: Unit Of Work Example in Hindi
+- Unit of work ek pattern match karta hai, agar hamare pass small no of class of hai tab ham Unit of work ka use karte hain.
+- Using Unit of work we can use our all repositories using single class.
+- Unit of work means pure work ko ek unit me divide karna.
+- Now use Repositories in Unit of work by making variables of Repositories in it, Now we no requirement of initialization of interfaces of repositories.
+- Now use Unit of work in StudentUnit Controller.
+
+97.ASP.NET CORE Tutorial For Beginners 97: Four Layer Design Pattern Example in Hindi
+- In this Video explaining N-Tier Architecture/Four Layer Design Pattern.
+- Using by Data Layer, ViewModel Layer, Service Layer, UI Layer.
+
+98.ASP.NET CORE Tutorial For Beginners 98: Deploy ASP.NET Core Application on IIS Server
+- Now learning deployment of application on IIS Server. <- means after deployment of application no required of VS.
+- Steps :- 
+- Install IIS Server in Machine -> Start -> Apps & Features -> Programs and Features -> Turn Windows Features on or off -> Internet Information Services and Internet Information Services Hostable Web Core -> Cheack All Checkboxes -> OK. <- Now we can use hostting services also for our application debloying on different servers like GoDaddy, Post Getter etc.
+- Now open Inetmgr using win+r -> Sites -> Add Sites -> write info like site name, host name(aspcore.dotnet.com), physical path(C:->inetpub,wwwroot,add folder select and click on ok) -> ok
+- Open Notepad with administrator mode -> file -> Open -> C:\Windows\System32\drivers\etc -> All files -> hosts open with notepad -> paste here your local host url ->
+127.0.0.1 activation.cloud.techsmith.com
+127.0.0.1             aspcore.dotnet.com -> save
+
+- Change Debug Environment in Production Steps -> Application Debug Properties -> Environment Variables -> Production
+- Download hosting budels also for hosting application steps -> search host asp.net core on windows with iis -> and download and install file
+- Now Depoyee Application On IIS Steps :- RUn Application in Administrator mode -> Right Click on application -> Published -> Folder ->  -> Next -> Browse -> select wwwroot application(ASPCORE) -> Ok -> Finish -> Publish.
+- open inetmgr -> right click on sites application(ASPCORE) -> Manage WebSites -> Browse. <- Thats it
+- Deployed Asp.net core 7 application but not worked identity and DataBase Controlers.
+
+99.ASP.NET CORE Tutorial For Beginners 99: One to many mapping in Detail
+- Here explaining one to one mapping, using Image model and product model. that we already done.
+
+100.ASP.NET CORE Tutorial For Beginners 100: Caching in Hindi
+- Caching means for some time user showing same screen. Means Cache karna data ko.
+- Install caching.memory package. use package as a service in Program.cs.
+- Create Caching Controller and its View with code and see output result.
+
+101.ASP.NET CORE Tutorial For Beginners 101: Html to PDF Conversion in Hindi
+- Here we knowing Conversion our View in Pdf File.
+- Already used i Task application. but here not worked properly so get reference from their.
+
+102.ASP.NET CORE Tutorial For Beginners 102: Caching Example in Hindi
+- When on server sending requests from multiple endpoints then our data load very late the using caching some data stored on browser like user name and password, by this we no need to send request to server directly we get the response using cached data simple.
+- Example Cricket Score, our score is hold using cached on brower, for holding request to sent on server after 10 second update data if ball is throwed.
+- Already Done.
+
+103.ASP.NET CORE Tutorial For Beginners 103: Cascading DropDownList logic and Ajax Call in Hindi
+- Cascade means depended. like example country, state and city with using jQuery.
+- Note:- In this View Only Explained the Flow of Code of Cascade DropDownList.
+
+104.ASP.NET CORE Tutorial For Beginners 104: Cascading SelectList | Country State Example
+- In this Video do the Practicle of Cascade DropDownList.
+- Create Country and State Model, Now Create CascadeDeopdownlList Controller and now show on Index View. <- But this video only done bind cascate that not sufficient, I done already in Task Application you can get reference from their.
+
+107.ASP.NET CORE Tutorial For Beginners 107: Generate Bar Code and Qr Code Using Single Line Of Code
+- Install IronBarCode package -> create BarcodeModel Class, Create barcode Controller the show barcode on View.
+- Here Barcode not worked beacause its said:-
+LicensingException: IronBarCode must be licensed for deployment outside of the Visual Studio development environment.https://ironsoftware.com/csharp/barcode/licensing/
+may be its said for a licence.
+
+108.ASP.NET CORE Tutorial For Beginners 108: SQLite Connection in Hindi
+- Install Sqlite Package using Package Manager Console -> Install-Package Microsoft.EntityFrameworkCore.Sqlite. and we can install using NugetPackageManager -> Microsoft.EntityFrameworkCore.Sqlite
+- Create SqlLiteContext, then Create SqlLiteTable Table, than Register SqlLiteContext in program.cs file, add-migration and update-database -context SqlLiteContext
+
+109.ASP.NET CORE Tutorial For Beginners 109: Cultures Why ? in Hindi
+- CultureInfo Class is worked on numbers,date,sorting etc.
+- Used on Program.cs Class.
+
+110.ASP.NET CORE Tutorial For Beginners 110: Install EF Core CLI Tool , Create WebAPI With dotnet CLI
+- Open Cmd -> Write Command for installing CLI(Commang Line Interface) of Dotnet -> dotnet tool install --global dotnet-ef
+- dotnet --help <- for help
+- dotnet new list
+- Create a Folder move in directory using cd command
+- dotnet new webapi -o eTicket
+- cd eTicket, dotnet run, Now listening on: http://localhost:5254/WeatherForecast
+- and run on Browser.
+
+112.C# Dependency Injection , Loosly Coupling, Tightly Coupling, Examples
+- We Using DI design Pattern for makkig Loosly Coupling in our Code. means our code not depend on each other.
+- IOC(Inversion of Controll) is our container in which our all design pattern exist. that wrap and make an single object of our all classes that is used in our DI. by this where our classes is used to become independent and we seem no object their.
+- DI we have three types Constructor Injection, Property Injection and third one is method Injection. method Injection very less used(like hospital on ill time). Constructor Injection is use where in entire class any thing used multi times.
+- Class Coupling means one class in depended on another class. A lot of Coupling then say Tight Coupling, then we use the concept of Loose Coupling.
+
+113.Html Helpers in detailed
+- Html Helpers used in Person Controller.
+
+116.Modal Popup CRUD Operation in ASP.NET CORE C#
+- Modal Popup used on Role Controller.
+
+117,119.How to Start New Project With Pattern in ASP.NET CORE
+- Aready Done.
+
+118.How to Use Multiple Layout Page in ASP NET CORE | Ask By Garima :Subscriber
+- Already Done.
+
+126.WebAPI Cascading Radio Button and Check Box List ASP.NET CORE AJAX CALL
+- Used in Fluent API.
+
+137.InMemory Database Example ASP.NET CORE Web API | DeleteBehavior ClientSetNULL Example
+- Microsoft.EntityFrameworkCore.InMemory Package Install.
+- Use in DataContext and Program.cs.
+- InMemory Database Means 
+- InMemory Database Means Data Storing in Browser Only as a temporary. after closing browser data will be lost.
+- No Migration or Database Server Need.
+
+138,139.Star Rating in ASP.NET CORE, Bus Ticket Booking Projec
+- Its Paid by Subscription.
+
+140.ASP.NET CORE 6.0 Microservice Example in Hindi
+- Already seprate Tutorial
+
+Notes
+---------
+what is the difference between null and empty in asp.net core mvc c# ?
+Empty - It has empty value.
+NULL - It has no value.
+
+- IQuerable means ToList();
+- DataContext making for communicating with Database with any provider(like SqlServer) using DbContext
+- Submit button click par ham dubara se kis page par aa sakte hain ye hamein form batata hai.
+- Visual studio is our Server for rendering files on Browser.
+- shift+alt+w for wrapping in div.
+- shortcut for generating any type of class prop like enum, struct etc. step :- pulb->Generate new type->enum->public.
+- sabse phele hamein har cheez ka html view dekhna chaiye fir hamein programming karni chaiye.
+- hamare pass agar koi cheez bani hui padi hai to ham kun usme time waste karein this is the rule of programming.
+- Crud Operations jitna ham samjhe utna ham logon ke liye kam hai.
+
+//https://www.youtube.com/watch?v=dNWl-vdZRfQ&list=PLun48DKtE4y5kJ7Oi5A6InQYg7ZiBwZmW <- #biharideveloper Asp.net core Videos
+//Check runtime compilation use in asp.net core mvc <- for sawing changings in Views without using HotReload.
+
+//What is the use or main pourpose of readonly property in C#.
+//Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Mail Send successfully');", true);
+
+Note:- Change in Edit section to move from Test to User.
+
+Q. What is the difference between in sql server and sqlite?
+A. SQL is Structured Query Language which is used with databases like MySQL, Oracle, Microsoft SQL Server, IBM DB2, etc.
+It is not a database itself. SQLite is a portable database resource. You have to get an extension of SQLite in whatever language you are
+programming in to access that database.
+---------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ASPCORE.ViewModels.RoleStoreViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="PlaceHolderHere"></div>
+
+<button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addRole"
+        data-url="@Url.Action("CreateRole")">
+    CreateRole
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addRole"
+                        data-url="@Url.Action($"CreateRole/{item.Id}")">
+                        Edit
+                    </button> |
+                    <a asp-action="DeleteRole" class="btn btn-primary" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

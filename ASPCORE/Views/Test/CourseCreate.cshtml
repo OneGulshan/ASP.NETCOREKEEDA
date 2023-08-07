@@ -1,0 +1,14 @@
+﻿@using ASPCORE.ViewModels;
+@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<form>
+    @*<select asp-for="Id" asp-items="@Html.GetEnumSelectList<CourseType>()">Now Here ab jo bhi course select hoga uski id select tag ke asp-for tag id me store ho jaegi*@
+    <select asp-for="Id" asp-items="@ViewBag.CourseList">
+        <option>--Select Course--</option>
+    </select>
+</form>

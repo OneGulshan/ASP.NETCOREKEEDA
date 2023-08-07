@@ -1,0 +1,35 @@
+﻿@model ASPCORE.Models.Course
+
+@{
+    @ViewData["Title"]//cs code used here using verbatim litera
+}
+@{
+    var Course = ViewBag.Course/*@ViewData["course"]*/ as ASPCORE.Models.Course;
+}
+<div>@Course?.Title</div>
+<div>@Course?.Code</div>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Create" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
