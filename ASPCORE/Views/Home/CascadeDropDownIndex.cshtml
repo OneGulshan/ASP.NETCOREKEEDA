@@ -7,23 +7,23 @@
 <select id="StateList"></select>
 @section scripts{
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             debugger;
             $('#StateList').empty();
             $('#StateList').append('<option value=' + 0 + ' >' + '--Select States--' + '</option >');
-            $("#CountryList").on("change", function(){
+            $("#CountryList").on("change", function () {
                 $.ajax({
                     type: "Post",
                     url: "/CascadeDropdownList/GetStates",
                     data: { "CountryId": $("#CountryList").val() },
-                    success: function(response) {
+                    success: function (response) {
                         var items = '';
-                        $(response).each(function() {
-                            items += "<option value=" +this.value+ ">" + this.text + "</option>";
+                        $(response).each(function () {
+                            items += "<option value=" + this.value + ">" + this.text + "</option>";
                         })
                         $("#StateList").html(items);
                     },
-                    failure: function(response){
+                    failure: function (response) {
                         alert(response.responseText);
                     },
                     error: function (response) {

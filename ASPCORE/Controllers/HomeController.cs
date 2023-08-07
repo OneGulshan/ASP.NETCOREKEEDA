@@ -1,6 +1,9 @@
-﻿using ASPCORE.Infrastructure;
+﻿using ASPCORE.Data;
+using ASPCORE.Infrastructure;
 using ASPCORE.Models;
+using IronBarCode;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
 using System.Diagnostics;
 
@@ -17,8 +20,11 @@ namespace ASPCORE.Controllers
         private readonly ISingletonService _sis1;
         private readonly ISingletonService _sis2;
         private readonly IMemoryCache _memoryCache;
+        private IWebHostEnvironment _webHost;
+        private readonly DataContext _context;
+
         public HomeController(ILogger<HomeController> logger, ITransientService ts1, ITransientService ts2, IScopedService scs1, IScopedService scs2, ISingletonService sis1, ISingletonService sis2
-            , IMemoryCache memoryCache)
+            , IMemoryCache memoryCache, IWebHostEnvironment webHost, DataContext context)
         {
             _logger = logger;
             _ts1 = ts1;
@@ -28,6 +34,8 @@ namespace ASPCORE.Controllers
             _sis1 = sis1;
             _sis2 = sis2;
             _memoryCache = memoryCache;
+            _webHost = webHost;
+            _context = context;
         }
 
         [Route("[action]")]
@@ -71,6 +79,54 @@ namespace ASPCORE.Controllers
         {
             Person persons = new() { PersonId = 1, PersonName = "Gulshan", Age = 27 };
             return View(persons);
+        }
+        [Route("[action]")]
+        public IActionResult BarcodeIndex()
+        {
+            return View();
+        }
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult BarcodeIndex(BarCodeModel model)
+        {
+            try
+            {
+                GeneratedBarcode barcode = BarcodeWriter.CreateBarcode(model.BarCodeText, BarcodeWriterEncoding.Code128);
+                //GeneratedBarcode barcode =
+                //IronBarCode.QRCodeWriter.CreateQrCode(model.BarCodeText);
+                barcode.ResizeTo(500, 150);
+                barcode.AddBarcodeValueTextBelowBarcode();
+                barcode.ChangeBarCodeColor(System.Drawing.Color.DarkBlue);
+                barcode.SetMargins(10);
+                string path = Path.Combine(_webHost.WebRootPath, "BarCodeFile");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string filePath = Path.Combine(_webHost.WebRootPath, "BarCodeFile/barcode.png");
+                barcode.SaveAsPng(filePath);
+                string filename = Path.GetFileName(filePath);
+                string imageUrl = $"{Request.Scheme}://" +
+                    $"{Request.Host}{Request.PathBase}" + "/BarCodeFile/" + filename;
+                ViewBag.barcode1 = imageUrl;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View();
+        }
+        [Route("[action]")]
+        public IActionResult CascadeDropDownIndex()
+        {
+            ViewBag.Countries = new SelectList(_context.Country, "Id", "Name");
+            return View();
+        }
+        [Route("[action]")]
+        public JsonResult GetStates(int CountryId)
+        {
+            var StateList = _context.State.Where(_ => _.CountryId == CountryId);
+            return Json(new SelectList(StateList, "Id", "Name"));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
