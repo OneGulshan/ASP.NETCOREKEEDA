@@ -1,0 +1,105 @@
+69.ASP.NET CORE Tutorial For Beginners 69 - Getting Started RESTFul API Introduction
+- In This Video we know about rest api.
+- Rest Full Form is :- Re -> Representational, S -> State, T -> Transfer. This is an pattern used for creating API's. API full form is Application Programming Interface.
+- Rest Supported Http and Https both protocalls.
+- Rest Constraint are four types :- Client-Server, Stateless, Cacheable and Uniform Interface.
+- Client-Server using Http and Https requests and responses for saving informations. In Stateless not saving any information on Server or CLient side during processing. Cacheable means no required to repeateation of requiests to server in this client owned store some information inmemory of Browser/Client. Uniform Interface is, using Uniform Interface Rest Designed.
+- Resources:- Models.
+- Http Verbs:- Post, Get, Put/Patch, Delete. Performing For Crud Operations.
+- api uri:- /api/employees <- api is optional here, this uri(unique resource identifier) found in url.
+- Need of API :- If same application is accessed by different clients then this application must be disigned using API is Better. Client means Plateform like Desktop and Android etc.
+
+70.ASP.NET CORE Tutorial For Beginners 70: Create RestFul API Project in Visual Studio
+- Create ASP.NET Core Web Api Project -> Delete WeatherForecast no need.
+- Right Click on Solution -> Create Class Library Project DataAccessLayer. <- Our all models will remain in DataAccessLayer.
+- Create Employee Model in DataAccessLayer.
+- Note:- In Web Api Only have Controller no View because View is Creating in Web Application and here we creating web api only.
+
+71.ASP.NET CORE Tutorial For Beginners 71: DbContext | Connection Strings | WebAPI
+- Install All Packages EntityFrameworkCore, EntityFrameworkCore.SqlServer and Tools.
+- Create Connection String in Web API Project.
+- Create Data Folder -> and DataContext in Data Folder. <- add DataAccessLayer Project reference in WebApi Project for using Model in it.
+- Register Connection String in Program.cs as a Service.
+
+72.ASP.NET CORE Tutorial For Beginners 72: WebAPI Repository Pattern
+- Here we learning Repository Pattern in Web Api.
+- Create Infrastructure Folder with Interface, based on Model and add Crud Operations Unimplemented methods in it.
+- Add Repository Folder with EmployeeRepo Repository and do implimentation of IEmployeeRepo Interface Task type in it using inheritence.
+- Note:- Repository Pattern is an Abstract Layer Between DataAccessLayer and Business Logics. Thats hold separation of Concern(MVC Pattern) and making Loosly Couple also to application(taaki soft type me ho jaae application).
+
+
+73.ASP.NET CORE Tutorial For Beginners 73 : WebAPI Get List of Resources
+- Know Create a Controller of Employee for using Repository Pattern in it.
+- Inherit Employee Controller with ControllerBase Class and add ApiController anotation on it for Making WebApi Controller.
+- Add Routing also on Controller. for getting data throw url. because api main motive is getting data throw api url.
+- Know make GetEmployees action method in Employee Api Controller with using Http Verbs and returning messages, status codes, try catch bock with Task async type.
+- Know add migration and update also. and add some records in db also.
+- Know run your Api Project and Get Json Result on Browser.
+- Note:- If api routing is default set WhetherForcast then change by your controller routing steps:- right click on project -> properties -> Debug -> Launch browse: api/controllername.
+- But in my case for changing swagger default routing by controller routing steps:- select project debug properties where selecting servers/defualt browser -> scroll down and in url set api/controllername.
+
+74.ASP.NET CORE Tutorial For Beginners 74 : WebAPI Get Resource by Id
+- Here we learn about postman app for getting json results from webapi using different url's request.
+- run api project -> copy browser url -> open Postman app -> paste in url section with Get request selection -> click on send button know -> and see result.
+- Note:- Postman is a Google Product so we safe in it. 
+- For Getting Result From Api from Postman/Swagger etc. must be api running/active. because activation is required of api for getting data from it.
+- for getting result from api url, url make using controller name not action methods names because on Api Controller defined api routing using controller's name not action methods names so.
+
+75.ASP.NET CORE Tutorial For Beginners 75 : WebAPI Post Resource
+- know add Post action method in it. with inserting new record using from postman.
+- Select Post method -> enter url -> click on body -> enter json result and click on send button in postman with selection Json Result from dropdown.
+
+76.ASP.NET CORE Tutorial For Beginners 76 : WebAPI Put Resource
+- Know add Put action method in Web Api for editing an Employee.
+
+77.ASP.NET CORE Tutorial For Beginners 77 : WebAPI Delete Resource
+- Know we adding Delete action method in Web Api for deleting an Employee.
+
+78.ASP.NET CORE Tutorial For Beginners 78 : WebAPI Search Resource
+- here we performing search operation in WebApi using Search Method.
+- Note:- IQueryable is IEnumerable type so query Converting in ToListAsync.
+- Any method is here Enumerable type await keyword is must here for using Any method.
+- Use Concate method for performing searching in multiple context fields.
+
+
+
+
+141.Filters in ASP.NET CORE | IActionFilter, IAsyncActionFilter, Custom Filter Example, How to use Hindi <- Imp Topic
+- Custom Filters and Predefined filters.
+- Note :- Filters <- Filter help us to run code at certain times in the life cycle of proccessing an Http request.
+- Filters are useful when we need to execute logic in several actions of several controller and we want to avoid having to repeate code.
+- Filters Types Authorizaton, Resource, Action, Excepion, Result, Attribute filters.
+- Add Response Caching in Program.cs. and in Employee Controller for caching in broweser for some duration of time and stopping requesting from server using same cache data from browser for that duration of time.
+- Open Postman -> Settings -> Send no-cache header(Off). Now Hit ResponseCache Action Method and using Postman and see the Headers Section Age Variable thats define the duration of time after 60 sec our Request resend to our Server and hit Action Method also.
+- We Can use this same concept in our Cricket app Application.
+- For using Authorizaton Filter <- Now add AddJwtBearer Package in program.cs file using Authentication. using for AuthenticationSchemes on Controller using by Authorize keyword. For Stoping accessing of anonymous user.
+- Here Now Custom Filters <- Create Filters folder -> Add ExampleActionFilter class in it -> and use IActionFilter Interface using this class for writing message on debug window using by OnActionExecuted ang OnActionExecuting methods.
+- For using our Custom Filters Globally using by add Filters in AddContollers method in Program.cs file. by this our Custom Filters bydefault run on every request using by Controllers Service.
+- Now Create EmployeeAttribute class and use Attribute Filter using this class.
+- Antiforgery Tocken/filter is used for checking data is correct or not in formate before insertion using by ModelState is Valid.
+- Using by IOrderedFilter we can change our Controller and action Calling Orders.
+
+142.Implementing CQRS(Command and Query Responsibility Agregation) and Mediatr ASP.NET CORE in Hindi
+- CQRS is our a design pattern. Which used for designing our project.
+- CQRS used Querys and Commands using Application on Database. Querys means by here Reading Operations and Commands writting Operations.
+- CQRS using motive is making different classes for each operations. by making different classes for each operation our mvc patteren making so good(means Loose Coupling).
+- In CQRS we can't communicate directly with object(Model) we used here mediator(Handeler) here.
+- If we worked with same object and communicate direct with object then complexity will be increased so, for this we dividing our complexity using different classes of each operation.
+- Our CQRS is handeled by MediatR Service thats we register in our Program.cs file.
+- in this project MediatR.Extensions.Microsoft.DependencyInjectionFixed Nuget Package used.
+
+143.SOLID Principle in Hindi | ASP.NET CORE | Java
+- In SOLID Principle we have five solid principles. They are
+- 1. Single Resposiblity Principle(SRP):- The SRP states that a class should only one resone to change, meaning it should have only one responsibility. This principle aims to make classes easier to maintain, test, and modify.
+- Like we have Single Order Class but we divided our class into and its resposibility we divided in different classes like Order Class, OderItem Class, OrderClaculator Class, OrderRepository Class etc.
+- 2. Open Close Principle(OCP):- Open means extension and Close means modification. Here, the extension means adding new features to the system without modifying that system means simply using here extends keyword in this principle for adding new features in system without modifying that system.
+- 3. Liskov Substitution Principle(LSP):- The LSP states that objects of a superclass should be replaceable with object of a subclass without effecting the correctness of the program. This principle ensures that inheritence hierarchies are designed correctly, and that all derived classes implement the behaviour expected by their base class.
+- 4. Interface Segregation Principle(ISP):- In this principle client not depended on a interface. functionality will be maked according to a Cliet. for example we have an Animal Interface which have 4 abstract interface so we want to use same 3 abstract methods only for this we create a new Interface and make same 3 methods in it and use it according to client, by this we not used the same interface simply.
+- Short Note:- ISP means make diff seprate interface for client and use abstract mehods of pre-exist interface in it according to client.
+- 5. Dependency Inversion Principle(DIP):- DIP means we have multiple interfaces with its implemented classes, we want to use all implimentation interfaces classes in a single class so, for this we used this DIP Pattern.
+
+
+Note:-
+- In Infrastructure have our Interfaces thats known as Repositories. and in Repository folder has implimentations of Repositories.
+- difference between in dropdown and dropdownlist is droopdownlist show always as a list. but dropdown is open and close on button click.
+- In Vs Code After running application past /swagger/index.html in last for running swagger
