@@ -34,6 +34,8 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="Views\SignalRClient\Index.cshtml" />
+    <None Include="Views\SignalRServer\Index.cshtml" />
     <None Include="Views\Student\Create.cshtml" />
     <None Include="Views\Student\Delete.cshtml" />
     <None Include="Views\Student\Details.cshtml" />

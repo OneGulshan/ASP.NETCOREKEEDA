@@ -62,6 +62,7 @@ builder.Services.AddSingleton<ISingletonService, TaskService>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddMemoryCache();
 //builder.Services.AddControllers();
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -89,6 +90,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Role}/{action=IndexRole}/{id?}");//pattern: "{tr}/{controller=StudentRepository}/{action=Index}/{id?}");
-
 app.MapRazorPages();
+app.MapHub<NotificationHub>("/notificationHub");
 app.Run();

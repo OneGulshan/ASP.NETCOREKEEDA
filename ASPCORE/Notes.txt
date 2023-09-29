@@ -466,6 +466,20 @@ may be its said for a licence.
 126.WebAPI Cascading Radio Button and Check Box List ASP.NET CORE AJAX CALL
 - Used in Fluent API.
 
+135.Signal R in ASP.NET CORE | Client-Server Application | Part-1
+- Signal R is an a application user for sending server notifications. or we can make an chat application. this is an asynchronus programming used no refreshment of browser pages. like stockmarket application.
+- add client library microsoft/signalr@6.0.6 unpkg type defaultProvider by choosing signalr.js and signalr.min.js browser type.
+- Now add two controller Client and Server and its Views.
+- Then Hubs Folder then NotificationHub Model then Notification model in Model Folder.
+- and add AddSignalR Service in Program.cs file with using by MapHub Service notificationHub.
+- Add ClientNotification js file also.
+- Now use Messages Functionality.
+
+136.Signal R Connected and Disconnected Client Information | ASP.NET CORE | Part-2
+- use OnConnected Client and Disconnected Clients in Hub Class For Knowing Both types of our Clients.
+- Now add ConnectedUsers model in Models Folder. and add users in NotificationHub Model. and Now use on Server.
+- Jitne Client Pages ham log open karnge utne Clients Count hamein server par show ho jaenge simply.
+
 137.InMemory Database Example ASP.NET CORE Web API | DeleteBehavior ClientSetNULL Example
 - Microsoft.EntityFrameworkCore.InMemory Package Install.
 - Use in DataContext and Program.cs.

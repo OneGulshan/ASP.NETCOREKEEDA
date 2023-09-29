@@ -9,6 +9,15 @@
     {
       "library": "twitter-bootstrap@4.1.1",
       "destination": "wwwroot/lib/bootstrap"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@6.0.22",
+      "destination": "wwwroot/lib/signalr/",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.min.js"
+      ]
     }
   ]
 }
