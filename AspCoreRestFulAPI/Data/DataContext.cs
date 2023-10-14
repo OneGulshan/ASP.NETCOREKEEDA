@@ -1,5 +1,4 @@
-﻿using AspCoreRestFulAPI.Models;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspCoreRestFulAPI.Data
@@ -10,6 +9,7 @@ namespace AspCoreRestFulAPI.Data
         public DbSet<Employee> Employee { get; set; }
         public DbSet<User>? Users { get; set; }
         public DbSet<Department>? Departments { get; set; }
+        public DbSet<Product>? Products => Set<Product>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<User>().ToTable("User_Info");//Table name change here

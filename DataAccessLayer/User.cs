@@ -1,4 +1,4 @@
-﻿namespace AspCoreRestFulAPI.Models
+﻿namespace DataAccessLayer
 {
     public class User
     {

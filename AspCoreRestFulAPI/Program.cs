@@ -2,6 +2,7 @@ using AspCoreRestFulAPI.Data;
 using AspCoreRestFulAPI.Filters;
 using AspCoreRestFulAPI.Infrastructure;
 using AspCoreRestFulAPI.Repository;
+using DataAccessLayer;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -17,11 +18,12 @@ builder.Services.AddControllers(o =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(); 
-builder.Services.AddDbContext<DataContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Con"));
-});
+builder.Services.AddSwaggerGen();
+//builder.Services.AddDbContext<DataContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("Con"));
+//});
+builder.Services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("Con"));
 
 builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 builder.Services.AddResponseCaching();
@@ -37,6 +39,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapPost("/productItems",
+    async (Product product, DataContext _context) =>
+    {
+        _context.Products?.Add(product);
+        await _context.SaveChangesAsync();
+        return Results.Created($"/productItems/{product.Id}", product);//on this product id our result is returned.
+    });
 app.UseResponseCaching();
 app.UseAuthentication();
 app.UseAuthorization();

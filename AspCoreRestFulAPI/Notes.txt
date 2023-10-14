@@ -61,6 +61,12 @@
 - Any method is here Enumerable type await keyword is must here for using Any method.
 - Use Concate method for performing searching in multiple context fields.
 
+111.ASP.NET CORE Tutorial For Beginners 111: Getting Started with
+- Create a new Minimal Web Api Project with unselection of Use controllers(uncheack to use minimal APIs). Minimal API is used if we want only displaying data only.
+- Using InMemoryDataBase in it.
+- Create Models Folder with Product Model then add DbContext in Model with register in program.cs. Install Microsoft.EntityFrameworkCore.InMemory Package
+- Write Product Post Code in Program.cs file. and Create a productItems Post method on it now run project and call this method using swagger UI. now Post Successfully.
+
 113.ASP.NET CORE FLUENT API-1 : Getting Started
 - Fluent API is used for mapping database and model. more than anotations fluent api has features, fluent api also have highest presedence.
 - Change Table Name using DataContext class.
