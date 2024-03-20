@@ -521,4 +521,11 @@ Q. What is the difference between in sql server and sqlite?
 A. SQL is Structured Query Language which is used with databases like MySQL, Oracle, Microsoft SQL Server, IBM DB2, etc.
 It is not a database itself. SQLite is a portable database resource. You have to get an extension of SQLite in whatever language you are
 programming in to access that database.
+
+Q. What is the meaning of MultipleActiveResultSets in Connection String?
+A. Multiple Active Result Sets (MARS) is a feature that allows the execution of multiple batches on a single connection. In previous versions, only one batch could be executed at a time against a single connection. Executing multiple batches with MARS does not imply simultaneous execution of operations.
+
+Multiple Active Result Sets (MARS) is a feature that allows the execution of multiple batches on a single connection. In previous versions, only one batch could be executed at a time against a single connection. Executing multiple batches with MARS does not imply simultaneous execution of operations.
+batches in normally related to SQL. It is a set of a set of actions that are to be performed. Like if you have thousands of row that are to be inserted into a database you would create a batch and have it scheduled to run at night time.
+
 ---------------------------------------------------------------------------------------------------------------------------
