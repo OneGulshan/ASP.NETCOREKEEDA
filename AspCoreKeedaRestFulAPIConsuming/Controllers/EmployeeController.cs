@@ -16,7 +16,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
         {
             HttpClient client = new()
             {
-                BaseAddress = new Uri("http://localhost:13912/")
+                BaseAddress = new Uri("http://localhost:5183/")
             };
             var response = await client.PostAsJsonAsync("api/employees", employee);//we don't know witch type of data we recieved so use var type variable here
             if (response.IsSuccessStatusCode)
@@ -31,7 +31,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
             List<Employee> employees = new();
             HttpClient client = new()//this client is for connecting with our web api
             {
-                BaseAddress = new Uri("http://localhost:13912/")//here define your API App url here/Base Address <- by selecting Debug properties -> Url
+                BaseAddress = new Uri("http://localhost:5183/")//here define your API App url here/Base Address <- by selecting Debug properties -> Url
             };
             HttpResponseMessage response = await client.GetAsync("api/employees");
             if (response.IsSuccessStatusCode)
@@ -53,7 +53,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
             Employee employee = new();
             HttpClient client = new()
             {
-                BaseAddress = new Uri("http://localhost:13912/")
+                BaseAddress = new Uri("http://localhost:5183/")
             };
             HttpResponseMessage response = await client.GetAsync($"api/employees/{id}");
             if (response.IsSuccessStatusCode)
@@ -75,7 +75,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
         {
             HttpClient client = new()
             {
-                BaseAddress = new Uri("http://localhost:13912/")
+                BaseAddress = new Uri("http://localhost:5183/")
             };
             var response = await client.PutAsJsonAsync($"api/employees/{employee.Id}", employee);//Here Same Code Copy Paste of Create Post Action Method and only changed HttpClient method here by PutAsJsonAsync
             if (response.IsSuccessStatusCode)
@@ -89,7 +89,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
         {
             HttpClient client = new()
             {
-                BaseAddress = new Uri("http://localhost:13912/")
+                BaseAddress = new Uri("http://localhost:5183/")
             };
             var response = await client.DeleteAsync($"api/employees/{id}");
             if (response.IsSuccessStatusCode)
