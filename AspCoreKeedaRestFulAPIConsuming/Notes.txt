@@ -1,0 +1,22 @@
+79.ASP.NET CORE Tutorial For Beginners 79 : Consume RestFul Web API Project
+80.ASP.NET CORE Tutorial For Beginners 80 : Detail View Consume RestFul Web API Project
+81.ASP.NET CORE Tutorial For Beginners 81 : Create View Consume RestFul Web API Project
+82.ASP.NET CORE Tutorial For Beginners 82 : Delete View Consume RestFul Web API Project
+83.ASP.NET CORE Tutorial For Beginners 83 : Update View Consume RestFul Web API Project
+84.ASP.NET CORE Tutorial For Beginners 84 : Implement Global Exception Handling in Hindi
+- Here we know how to do Global Exception Handling in Production Environment.
+- In Program.cs file in IsDevelopment environment midelware pipeline handeled our Enviroments mode bydefault.
+- In launchsetting.json file in ASPNETCORE_ENVIRONMENT bydefault set Development environment. In Development Environment mode bydefault run Developer exception page.
+- Now change our Aspnetcore Environment in IISExpress profile from Production environment in launchsettings file. in Production environment our application up can be upload/publish on any server. In launchsetting.json we have multi different profiles like http, https, and IIS Express.
+- Now in program.cs file run our setting UseExceptionHandler and in default run Error Page thats exist in Shared Folder. Thats say Global Exception Handeling. thats haddeled by program.cs file's IsDevelopment Enviroment in different-different environments.
+
+Notes:- Here Consuming Web Api using Web Api Base Address and routing address.
+Create Same Model that maching with RestFul Web Api.
+Create Controller with Consuming Action methods and its Views. Thats it.
+Using single Web Api we can Work with cross plateform applications like mobile,desktop and webapp etc.
+Web Api is the best approach to learn cross plateform applications.
+Create Create action method and remove Id from Create View.
+---------------------------------------------------------------------
+24/06/2024
+------------
+DotNet Core Consuming API Project on Dotnet 7 Added in AspCore Project
