@@ -1,12 +1,10 @@
 using ASPCORE.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ASPCORE.Models;
 using ASPCORE.Infrastructure;
 using ASPCORE.Repository;
 using ASPCORE.GenericRepository;
 using ASPCORE.GenericInfrastructure;
-using Rotativa.AspNetCore;
 using System.Globalization;
 
 //Console.WriteLine(CultureInfo.CurrentCulture);

@@ -5,6 +5,6 @@ namespace ASPCORE.Models
     [Display(Name = "Enter BarCode Text")]
     public class BarCodeModel
     {
-        public string?  BarCodeText { get; set; }
+        public string BarCodeText { get; set; }
     }
 }

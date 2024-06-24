@@ -12,7 +12,7 @@ namespace ASPCORE.ViewModels
         [MaxLength(50, ErrorMessage = "Name is Required Field & Less than 50 Characters !!")]
         public string Name { get; set; } = "";
         public DateTime Enrolled { get; set; }
-        public IList<SelectListItem>? Courses { get; set; }
+        public IList<SelectListItem> Courses { get; set; }
     }
 }
 //[EmailAddress] <- EmailAddress DataAnnotation For cheacking email address formate by default

@@ -6,9 +6,9 @@ namespace ASPCORE.Controllers
 {
     public class SignalRServerController : Controller
     {
-        private readonly IHubContext<NotificationHub>? _notificationHub;
+        private readonly IHubContext<NotificationHub> _notificationHub;
 
-        public SignalRServerController(IHubContext<NotificationHub>? notificationHub)
+        public SignalRServerController(IHubContext<NotificationHub> notificationHub)
         {
             _notificationHub = notificationHub;
         }

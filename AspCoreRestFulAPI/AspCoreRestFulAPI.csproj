@@ -25,9 +25,5 @@
 		<ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	</ItemGroup>
-
 
 </Project>

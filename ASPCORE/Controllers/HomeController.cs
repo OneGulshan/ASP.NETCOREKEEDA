@@ -5,7 +5,6 @@ using IronBarCode;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
-using System.Diagnostics;
 
 namespace ASPCORE.Controllers
 {
@@ -127,12 +126,6 @@ namespace ASPCORE.Controllers
         {
             var StateList = _context.State.Where(_ => _.CountryId == CountryId);
             return Json(new SelectList(StateList, "Id", "Name"));
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -4,7 +4,6 @@ using ASPCORE.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Diagnostics;
 
 namespace ASPCORE.Controllers
 {
@@ -17,7 +16,7 @@ namespace ASPCORE.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int pageNumber = 1, string ?searchProductName = null)
+        public async Task<IActionResult> Index(int pageNumber = 1, string searchProductName = null)
         {
             var searchResult = _context.Product.AsNoTracking();
             if (!string.IsNullOrEmpty(searchProductName))

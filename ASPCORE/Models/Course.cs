@@ -9,6 +9,6 @@ namespace ASPCORE.Models
         public int Id { get; set; }
         public string Title { get; set; } = "";
         public string Code { get; set; } = "";
-        public ICollection<StudentCourse>? StudentCourses { get; set; } = new HashSet<StudentCourse>();
+        public ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
     }
 }

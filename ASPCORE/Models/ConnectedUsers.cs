@@ -2,6 +2,6 @@
 {
     public static class ConnectedUsers
     {
-        public static List<string>? UserId = new();
+        public static readonly List<string> UserId = new();
     }
 }

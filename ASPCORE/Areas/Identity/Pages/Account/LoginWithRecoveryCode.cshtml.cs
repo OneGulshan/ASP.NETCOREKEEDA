@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
 using ASPCORE.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
 namespace ASPCORE.Areas.Identity.Pages.Account
 {
@@ -35,7 +30,7 @@ namespace ASPCORE.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Recovery Code")]
-            public string? RecoveryCode { get; set; }
+            public string RecoveryCode { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync(string returnUrl = null)

@@ -1,6 +1,4 @@
-﻿using ASPCORE.Models;
-
-namespace ASPCORE.GenericInfrastructure
+﻿namespace ASPCORE.GenericInfrastructure
 {
     public interface IRepo<T> where T : class
     {

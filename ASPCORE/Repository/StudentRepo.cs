@@ -1,7 +1,6 @@
 ﻿using ASPCORE.Data;
 using ASPCORE.Infrastructure;
 using ASPCORE.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ASPCORE.Repository
 {
@@ -17,9 +16,7 @@ namespace ASPCORE.Repository
             return _context.Students.ToList();
         }
 
-#pragma warning disable CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
-        public Student? GetByID(int? Id)
-#pragma warning restore CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
+        public Student GetByID(int? Id)
         {
             var Student = _context.Students.Where(_ => _.Id == Id).FirstOrDefault();
             return Student;
@@ -45,9 +42,7 @@ namespace ASPCORE.Repository
             return student;
         }
 
-#pragma warning disable CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
-        public Student? Delete(int? Id)
-#pragma warning restore CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
+        public Student Delete(int? Id)
         {
             var Student = _context.Students.Find(Id);
             if (Student != null)
